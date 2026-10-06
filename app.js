@@ -191,17 +191,33 @@ function renderGrid() {
   document.querySelectorAll('.char-card').forEach(btn => btn.addEventListener('click', () => selectCharacter(Number(btn.dataset.index))));
 }
 
+function getWriterSize() {
+  const el = $('writer');
+  const size = Math.floor(Math.min(el.clientWidth || 320, el.clientHeight || el.clientWidth || 320));
+  return Math.max(180, size);
+}
+
 function initWriter(char) {
   if (!window.HanziWriter) {
     $('writer').textContent = char;
     $('writerStatus').textContent = '筆順工具尚未載入；請確認網路連線後重新整理。';
     return;
   }
+
+  if (writer && typeof writer.cancelQuiz === 'function') {
+    try { writer.cancelQuiz(); } catch (_) {}
+  }
+  writer = null;
   $('writer').innerHTML = '';
+
   try {
+    const size = getWriterSize();
     writer = HanziWriter.create('writer', char, {
-      width: '100%', height: '100%', padding: 12,
-      showOutline: true, showCharacter: false,
+      width: size,
+      height: size,
+      padding: Math.round(size * 0.08),
+      showOutline: true,
+      showCharacter: false,
       strokeAnimationSpeed: 1,
       strokeColor: '#d84b45',
       radicalColor: '#d84b45',
@@ -211,14 +227,28 @@ function initWriter(char) {
       strokeFadeDuration: 300,
       strokeHighlightDuration: 180,
       delayBetweenStrokes: 180,
-      onLoadCharDataSuccess: () => { $('writerStatus').textContent = '筆順已載入。先看一次，再自己寫。'; },
-      onLoadCharDataError: () => { $('writerStatus').textContent = '找不到這個字的筆順資料。'; }
+      onLoadCharDataSuccess: () => {
+        $('writerStatus').textContent = '筆順已載入。先看一次，再自己寫。';
+      },
+      onLoadCharDataError: () => {
+        $('writerStatus').textContent = '找不到這個字的筆順資料。';
+      }
     });
     $('writerStatus').textContent = '筆順載入中…';
   } catch (e) {
+    console.error('Hanzi Writer initialization failed:', e);
     $('writerStatus').textContent = '筆順工具發生問題，請重新整理頁面。';
   }
 }
+
+let writerResizeTimer = null;
+window.addEventListener('resize', () => {
+  if (!writer) return;
+  clearTimeout(writerResizeTimer);
+  writerResizeTimer = setTimeout(() => {
+    try { writer.updateDimensions({ width: getWriterSize(), height: getWriterSize() }); } catch (_) {}
+  }, 120);
+});
 
 function renderCharacter() {
   const item = weekly[selectedIndex];
@@ -308,8 +338,44 @@ function nextPractice() {
   renderPracticeQuestion();
 }
 
-$('animateBtn').addEventListener('click', () => writer?.animateCharacter?.() || showToast('筆順工具尚未準備好'));
-$('quizBtn').addEventListener('click', () => writer?.quiz?.({ showHintAfterMisses: 2 }) || showToast('筆順工具尚未準備好'));
+$('animateBtn').addEventListener('click', () => {
+  if (!writer || typeof writer.animateCharacter !== 'function') {
+    showToast('筆順工具尚未準備好');
+    return;
+  }
+  try {
+    $('writerStatus').textContent = '正在播放筆順…';
+    writer.animateCharacter({ onComplete: () => { $('writerStatus').textContent = '筆順播放完成。現在試著自己寫。'; } });
+  } catch (e) {
+    console.error('Hanzi Writer animation failed:', e);
+    showToast('筆順動畫啟動失敗，請重新整理。');
+  }
+});
+$('quizBtn').addEventListener('click', () => {
+  if (!writer || typeof writer.quiz !== 'function') {
+    showToast('筆順工具尚未準備好');
+    return;
+  }
+  try {
+    writer.quiz({
+      showHintAfterMisses: 2,
+      onComplete: () => {
+        $('writerStatus').textContent = '太棒了！你完成了這個字的筆順練習。';
+        markCompleted(weekly[selectedIndex].char);
+        renderWeekMeta();
+        renderGrid();
+        renderCharacter();
+        showToast(`「${weekly[selectedIndex].char}」筆順完成 ✓`);
+      },
+      onMistake: () => { $('writerStatus').textContent = '再試一次，慢慢寫，注意筆畫方向。'; },
+      onCorrectStroke: () => { $('writerStatus').textContent = '寫對了！繼續下一筆。'; }
+    });
+    $('writerStatus').textContent = '請照著筆順，在上方寫出這個字。';
+  } catch (e) {
+    console.error('Hanzi Writer quiz failed:', e);
+    showToast('筆順練習啟動失敗，請重新整理。');
+  }
+});
 $('speakBtn').addEventListener('click', () => speak(weekly[selectedIndex].char));
 $('markBtn').addEventListener('click', () => {
   const item = weekly[selectedIndex];
