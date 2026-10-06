@@ -274,14 +274,36 @@ function selectCharacter(index) {
   renderCharacter();
 }
 
-function speak(text) {
-  if (!('speechSynthesis' in window)) { showToast('這個瀏覽器不支援語音播放'); return; }
+function getChineseVoice() {
+  if (!('speechSynthesis' in window)) return null;
+  const voices = window.speechSynthesis.getVoices();
+  return voices.find(v => /^zh-TW$/i.test(v.lang))
+    || voices.find(v => /^zh[-_]TW/i.test(v.lang))
+    || voices.find(v => /^zh/i.test(v.lang))
+    || null;
+}
+
+function speak(text, options = {}) {
+  if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance === 'undefined') {
+    showToast('這個瀏覽器不支援語音播放');
+    return;
+  }
+  const value = String(text || '').trim();
+  if (!value) return;
+
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'zh-TW';
-  u.rate = .8;
-  u.pitch = 1;
+  const u = new SpeechSynthesisUtterance(value);
+  u.lang = options.lang || 'zh-TW';
+  u.rate = options.rate ?? .8;
+  u.pitch = options.pitch ?? 1;
+  const voice = getChineseVoice();
+  if (voice && (!options.lang || /^zh/i.test(options.lang))) u.voice = voice;
+  u.onerror = () => showToast('語音播放失敗，請確認裝置的中文語音已啟用。');
   window.speechSynthesis.speak(u);
+}
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.addEventListener?.('voiceschanged', () => getChineseVoice());
 }
 
 function showToast(msg) {
@@ -376,7 +398,9 @@ $('quizBtn').addEventListener('click', () => {
     showToast('筆順練習啟動失敗，請重新整理。');
   }
 });
-$('speakBtn').addEventListener('click', () => speak(weekly[selectedIndex].char));
+$('speakBtn').addEventListener('click', () => speak(weekly[selectedIndex].char, { rate: .72 }));
+$('meaningSpeakBtn').addEventListener('click', () => speak(weekly[selectedIndex].meaning));
+$('sentenceSpeakBtn').addEventListener('click', () => speak(weekly[selectedIndex].sentence, { rate: .78 }));
 $('markBtn').addEventListener('click', () => {
   const item = weekly[selectedIndex];
   markCompleted(item.char); renderWeekMeta(); renderGrid(); renderCharacter(); showToast(`「${item.char}」已完成 ✓`);

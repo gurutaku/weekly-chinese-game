@@ -131,6 +131,8 @@ h2 { margin: 5px 0 0; font-size: 30px; letter-spacing: -.03em; }
 .facts-card { padding: 22px; }
 .pronunciation-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .fact-block { background: #fbf8f5; border-radius: 16px; padding: 15px; }
+.fact-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.speak-text-btn { padding: 7px 10px; white-space: nowrap; }
 .bopomofo { margin-top: 7px; font-size: 26px; font-weight: 900; color: var(--blue); letter-spacing: .04em; }
 .pinyin { margin-top: 11px; font-size: 19px; font-weight: 800; color: #5e555d; }
 .fact-divider { height: 1px; background: var(--line); margin: 18px 0; }
