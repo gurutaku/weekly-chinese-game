@@ -1,4 +1,4 @@
-const SEED_POOL = [
+const HANZI_POOL = [
   { char:'我', bopomofo:'ㄨㄛˇ', pinyin:'wǒ', meaning:'我；自己。', sentence:'我喜歡看書。', en:'I like reading books.', tip:'「我」是第一人稱，介紹自己時很常用。' },
   { char:'你', bopomofo:'ㄋㄧˇ', pinyin:'nǐ', meaning:'你；第二人稱。', sentence:'你今天開心嗎？', en:'Are you happy today?', tip:'「你」常和「我」一起出現：我、你。' },
   { char:'他', bopomofo:'ㄊㄚ', pinyin:'tā', meaning:'他；男性第三人稱。', sentence:'他正在跑步。', en:'He is running.', tip:'「他」指男生或男性；女生常寫「她」。' },
@@ -98,13 +98,7 @@ const SEED_POOL = [
 ];
 
 // Remove duplicate characters while keeping the first definition.
-const SEED_DATA = Array.from(new Map(SEED_POOL.map(item => [item.char, item])).values());
-let DATA = [...SEED_DATA];
-const TARGET_CHAR_COUNT = 520;
-const WEEKS_PER_YEAR = 52;
-const CHARS_PER_WEEK = 10;
-const CHARACTER_API = 'https://api.taiwanmandarin.com';
-const CHARACTER_CACHE_KEY = 'chinese-weekly-character-cache-v3';
+const DATA = Array.from(new Map(HANZI_POOL.map(item => [item.char, item])).values());
 const STORAGE_KEY = 'chinese-weekly-progress-v1';
 
 let state = loadState();
@@ -147,39 +141,15 @@ function hashString(str) {
   for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
   return h >>> 0;
 }
-function learningYearStart(year = new Date().getFullYear()) {
-  // The learning year starts on the first Monday on/after January 1.
-  const d = new Date(year, 0, 1);
-  const day = d.getDay();
-  const daysToMonday = (8 - day) % 7;
-  d.setDate(d.getDate() + daysToMonday);
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
-
-function learningWeekIndex(date = new Date()) {
-  const start = learningYearStart(date.getFullYear());
-  const monday = startOfWeek(date);
-  if (monday < start) return 0;
-  return Math.min(WEEKS_PER_YEAR - 1, Math.floor((monday - start) / (7 * 24 * 60 * 60 * 1000)));
-}
-
-function getYearDeck() {
-  const year = new Date().getFullYear();
-  const seed = hashString(`chinese-year-${year}-${DATA.length}`);
+function getWeeklySet() {
+  const seed = hashString(weekKey());
   const rand = mulberry32(seed);
   const pool = [...DATA];
   for (let i = pool.length - 1; i > 0; i--) {
     const j = Math.floor(rand() * (i + 1));
     [pool[i], pool[j]] = [pool[j], pool[i]];
   }
-  return pool.slice(0, TARGET_CHAR_COUNT);
-}
-
-function getWeeklySet() {
-  const deck = getYearDeck();
-  const index = learningWeekIndex();
-  return deck.slice(index * CHARS_PER_WEEK, index * CHARS_PER_WEEK + CHARS_PER_WEEK);
+  return pool.slice(0, Math.min(10, pool.length));
 }
 function formatMD(d) { return `${d.getMonth()+1}/${d.getDate()}`; }
 function completed(char) { return Boolean(state.completed[weekKey()]?.includes(char)); }
@@ -200,94 +170,9 @@ function getStreak() {
   return streak;
 }
 
-async function fetchCharacterPage(page) {
-  const url = `${CHARACTER_API}/characters?maxRank=${TARGET_CHAR_COUNT}&pageSize=500&page=${page}`;
-  const response = await fetch(url, { headers: { 'Accept': 'application/json' } });
-  if (!response.ok) throw new Error(`Character API HTTP ${response.status}`);
-  return response.json();
-}
-
-function makeRemoteItem(record) {
-  const exampleWords = Array.isArray(record.example_words) ? record.example_words.filter(Boolean) : [];
-  const exampleWord = exampleWords[0] || record.char;
-  const templates = [
-    [`我今天學會了「${exampleWord}」。`, `I learned “${exampleWord}” today.`],
-    [`老師教我們「${exampleWord}」。`, `The teacher taught us “${exampleWord}”.`],
-    [`我在書上看到了「${exampleWord}」。`, `I saw “${exampleWord}” in a book.`],
-    [`你會念「${exampleWord}」嗎？`, `Can you read “${exampleWord}”?`]
-  ];
-  const pair = templates[hashString(record.char) % templates.length];
-  return {
-    char: record.char,
-    bopomofo: record.bopomofo || '',
-    pinyin: record.pinyin || '',
-    meaning: record.english || '常用字。',
-    sentence: pair[0],
-    en: pair[1],
-    tip: record.bopomofo
-      ? `先記住注音「${record.bopomofo}」和意思，再練習筆順。`
-      : '先記住意思，再慢慢練習筆順。'
-  };
-}
-
-function mergeCharacterData(remoteRecords) {
-  const remoteMap = new Map(remoteRecords.map(makeRemoteItem).map(item => [item.char, item]));
-  const chars = [];
-  for (const item of SEED_DATA) {
-    if (!chars.includes(item.char)) chars.push(item.char);
-  }
-  for (const item of remoteRecords) {
-    if (chars.length >= TARGET_CHAR_COUNT) break;
-    if (!chars.includes(item.char)) chars.push(item.char);
-  }
-  // Preserve the user's hand-written definitions, while filling any missing fields from the API.
-  const seedMap = new Map(SEED_DATA.map(item => [item.char, item]));
-  DATA = chars.map(char => ({ ...(remoteMap.get(char) || {}), ...(seedMap.get(char) || { char }) }));
-}
-
-async function hydrateCharacterData() {
-  let remoteRecords = null;
-  try {
-    const [page1, page2] = await Promise.all([fetchCharacterPage(1), fetchCharacterPage(2)]);
-    remoteRecords = [...(page1.results || []), ...(page2.results || [])];
-    if (remoteRecords.length >= TARGET_CHAR_COUNT) {
-      localStorage.setItem(CHARACTER_CACHE_KEY, JSON.stringify(remoteRecords.slice(0, TARGET_CHAR_COUNT)));
-    }
-  } catch (error) {
-    console.warn('Character API unavailable:', error);
-    try {
-      const cached = JSON.parse(localStorage.getItem(CHARACTER_CACHE_KEY) || 'null');
-      if (Array.isArray(cached) && cached.length >= TARGET_CHAR_COUNT) remoteRecords = cached;
-    } catch (_) {}
-  }
-
-  if (!remoteRecords || remoteRecords.length < TARGET_CHAR_COUNT) {
-    // The app still works with the original built-in set when offline.
-    $('weekRange').textContent = `${new Date().getFullYear()} · 暫時使用內建字庫（${DATA.length} 字）`;
-    return false;
-  }
-
-  mergeCharacterData(remoteRecords);
-  // The seed list may contain a few characters outside the top-520 feed.
-  // Fetch only those missing entries individually rather than making hundreds of calls.
-  const missing = DATA.filter(item => !item.pinyin || !item.bopomofo || !item.meaning).map(item => item.char).slice(0, 25);
-  if (missing.length) {
-    const extras = await Promise.allSettled(missing.map(async char => {
-      const response = await fetch(`${CHARACTER_API}/characters/${encodeURIComponent(char)}`, { headers: { 'Accept': 'application/json' } });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
-    }));
-    const extraItems = extras.filter(x => x.status === 'fulfilled').map(x => makeRemoteItem(x.value));
-    const extraMap = new Map(extraItems.map(item => [item.char, item]));
-    DATA = DATA.map(item => item.pinyin && item.bopomofo && item.meaning ? item : { ...extraMap.get(item.char), ...item });
-  }
-  return DATA.length === TARGET_CHAR_COUNT;
-}
-
 function renderWeekMeta() {
   const start = startOfWeek(new Date()); const end = endOfWeek(new Date());
-  const weekNumber = learningWeekIndex() + 1;
-  $('weekRange').textContent = `${start.getFullYear()} / ${formatMD(start)} – ${formatMD(end)} · 第 ${weekNumber} / ${WEEKS_PER_YEAR} 週`;
+  $('weekRange').textContent = `${start.getFullYear()} / ${formatMD(start)} – ${formatMD(end)}`;
   $('streakValue').textContent = `${getStreak()} 天`;
   const count = weekly.filter(item => completed(item.char)).length;
   $('progressText').textContent = `${count} / ${weekly.length} 已完成`;
@@ -528,29 +413,5 @@ $('resetProgress').addEventListener('click', () => {
   state = { completed: {}, streakDates: [] }; saveState(); renderWeekMeta(); renderGrid(); renderCharacter(); showToast('學習紀錄已重設');
 });
 
-async function hydrateWeeklyExamples() {
-  const seedChars = new Set(SEED_DATA.map(item => item.char));
-  const results = await Promise.allSettled(weekly.map(async item => {
-    if (seedChars.has(item.char)) return item;
-    const response = await fetch(`${CHARACTER_API}/characters/${encodeURIComponent(item.char)}`, { headers: { 'Accept': 'application/json' } });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    return makeRemoteItem(await response.json());
-  }));
-  weekly = weekly.map((item, i) => results[i].status === 'fulfilled' ? results[i].value : item);
-}
-
-async function bootstrap() {
-  renderWeekMeta();
-  renderCharacter();
-  const loaded = await hydrateCharacterData();
-  if (loaded) {
-    selectedIndex = 0;
-    weekly = getWeeklySet();
-    renderWeekMeta();
-    renderCharacter();
-    await hydrateWeeklyExamples();
-    renderCharacter();
-  }
-}
-
-bootstrap();
+renderWeekMeta();
+renderCharacter();
