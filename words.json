@@ -5733,7 +5733,7 @@
     "tip": "「低」和「高」相反。",
     "meaningEn": "low.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 583
   },
   {
     "char": "友",
@@ -5745,7 +5745,7 @@
     "tip": "「友」是友誼、友情的「友」。",
     "meaningEn": "friend; friendly.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 585
   },
   {
     "char": "喝",
@@ -5757,7 +5757,7 @@
     "tip": "「喝」是喝飲料、喝水的動作。",
     "meaningEn": "drink.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 978
   },
   {
     "char": "媽",
@@ -5769,7 +5769,7 @@
     "tip": "「媽」的右邊是「馬」。",
     "meaningEn": "mom; mother.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 747
   },
   {
     "char": "慢",
@@ -5781,7 +5781,7 @@
     "tip": "「慢」和「快」是一組相反詞。",
     "meaningEn": "slow.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 819
   },
   {
     "char": "晚",
@@ -5793,7 +5793,7 @@
     "tip": "「早」和「晚」是時間上的對比。",
     "meaningEn": "late; evening/night.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 635
   },
   {
     "char": "朋",
@@ -5805,7 +5805,7 @@
     "tip": "「朋」和「友」一起組成「朋友」。",
     "meaningEn": "friend (as in 朋友).",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 878
   },
   {
     "char": "校",
@@ -5817,7 +5817,7 @@
     "tip": "「學校」的「校」讀第四聲。",
     "meaningEn": "school; campus.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 626
   },
   {
     "char": "樹",
@@ -5829,7 +5829,7 @@
     "tip": "「樹」常用來表示有木質主幹的植物。",
     "meaningEn": "tree.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 693
   },
   {
     "char": "爸",
@@ -5841,7 +5841,7 @@
     "tip": "「爸」是口語中常用的爸爸稱呼。",
     "meaningEn": "dad; father.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 1045
   },
   {
     "char": "狗",
@@ -5853,7 +5853,7 @@
     "tip": "「狗」是日常很常見的動物字。",
     "meaningEn": "dog.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 1283
   },
   {
     "char": "玩",
@@ -5865,7 +5865,7 @@
     "tip": "「玩」常和遊戲、活動放在一起。",
     "meaningEn": "play; have fun.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 1070
   },
   {
     "char": "短",
@@ -5877,7 +5877,7 @@
     "tip": "「短」和「長」相反。",
     "meaningEn": "short.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 886
   },
   {
     "char": "耳",
@@ -5889,7 +5889,7 @@
     "tip": "「耳」的字形像耳朵。",
     "meaningEn": "ear.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 884
   },
   {
     "char": "舊",
@@ -5901,7 +5901,7 @@
     "tip": "「舊」和「新」相反。",
     "meaningEn": "old; used.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 911
   },
   {
     "char": "草",
@@ -5913,7 +5913,7 @@
     "tip": "「草」常和草地、青草一起使用。",
     "meaningEn": "grass; plant.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 787
   },
   {
     "char": "讀",
@@ -5925,7 +5925,7 @@
     "tip": "「讀」是把文字讀出來或閱讀。",
     "meaningEn": "read; read aloud.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 750
   },
   {
     "char": "貓",
@@ -5937,7 +5937,7 @@
     "tip": "「貓」的左邊是「犬」的字形部件。",
     "meaningEn": "cat.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 1691
   },
   {
     "char": "足",
@@ -5949,7 +5949,7 @@
     "tip": "「足」和腳、走路有關。",
     "meaningEn": "foot; feet; enough.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 519
   },
   {
     "char": "跑",
@@ -5961,7 +5961,7 @@
     "tip": "「跑」是「走」得更快。",
     "meaningEn": "run.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 861
   },
   {
     "char": "魚",
@@ -5973,7 +5973,7 @@
     "tip": "「魚」的下方四點可想成水。",
     "meaningEn": "fish.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 849
   },
   {
     "char": "鳥",
@@ -5985,7 +5985,7 @@
     "tip": "「鳥」看起來像一隻側身的小鳥。",
     "meaningEn": "bird.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 1264
   },
   {
     "char": "黑",
@@ -5997,6 +5997,6 @@
     "tip": "「黑」和「白」相反。",
     "meaningEn": "black; dark.",
     "source": "custom",
-    "frequencyRank": null
+    "frequencyRank": 512
   }
 ]
