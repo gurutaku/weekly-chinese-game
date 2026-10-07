@@ -6,7 +6,8 @@
     "meaning": "我；自己。",
     "sentence": "我喜歡看書。",
     "en": "I like reading books.",
-    "tip": "「我」是第一人稱，介紹自己時很常用。"
+    "tip": "「我」是第一人稱，介紹自己時很常用。",
+    "meaningEn": "I; me; myself."
   },
   {
     "char": "你",
@@ -15,7 +16,8 @@
     "meaning": "你；第二人稱。",
     "sentence": "你今天開心嗎？",
     "en": "Are you happy today?",
-    "tip": "「你」常和「我」一起出現：我、你。"
+    "tip": "「你」常和「我」一起出現：我、你。",
+    "meaningEn": "you."
   },
   {
     "char": "他",
@@ -24,7 +26,8 @@
     "meaning": "他；男性第三人稱。",
     "sentence": "他正在跑步。",
     "en": "He is running.",
-    "tip": "「他」指男生或男性；女生常寫「她」。"
+    "tip": "「他」指男生或男性；女生常寫「她」。",
+    "meaningEn": "he; him."
   },
   {
     "char": "她",
@@ -33,7 +36,8 @@
     "meaning": "她；女性第三人稱。",
     "sentence": "她喜歡畫畫。",
     "en": "She likes drawing.",
-    "tip": "「她」和「他」發音相同，但意思不同。"
+    "tip": "「她」和「他」發音相同，但意思不同。",
+    "meaningEn": "she; her."
   },
   {
     "char": "好",
@@ -42,7 +46,8 @@
     "meaning": "好；很好；適合。",
     "sentence": "今天的天氣很好。",
     "en": "The weather is very nice today.",
-    "tip": "「你好」是很常見的招呼語。"
+    "tip": "「你好」是很常見的招呼語。",
+    "meaningEn": "good; well; fine."
   },
   {
     "char": "大",
@@ -51,7 +56,8 @@
     "meaning": "大；尺寸或程度高。",
     "sentence": "這是一棵大樹。",
     "en": "This is a big tree.",
-    "tip": "記住「大」張開雙手的形狀。"
+    "tip": "記住「大」張開雙手的形狀。",
+    "meaningEn": "big; large."
   },
   {
     "char": "小",
@@ -60,7 +66,8 @@
     "meaning": "小；尺寸或程度低。",
     "sentence": "小鳥在樹上唱歌。",
     "en": "A little bird is singing in the tree.",
-    "tip": "「大」和「小」是一組相反詞。"
+    "tip": "「大」和「小」是一組相反詞。",
+    "meaningEn": "small; little."
   },
   {
     "char": "上",
@@ -69,7 +76,8 @@
     "meaning": "上面；向上；開始。",
     "sentence": "書在桌子上。",
     "en": "The book is on the table.",
-    "tip": "「上」可以表示位置，也可以表示往上的方向。"
+    "tip": "「上」可以表示位置，也可以表示往上的方向。",
+    "meaningEn": "above; up; on."
   },
   {
     "char": "下",
@@ -78,7 +86,8 @@
     "meaning": "下面；向下；下一個。",
     "sentence": "球掉到地上了。",
     "en": "The ball fell onto the ground.",
-    "tip": "「上」和「下」是方向相反的一對。"
+    "tip": "「上」和「下」是方向相反的一對。",
+    "meaningEn": "below; down; under."
   },
   {
     "char": "天",
@@ -87,7 +96,8 @@
     "meaning": "天空；一天；日子。",
     "sentence": "今天是星期一。",
     "en": "Today is Monday.",
-    "tip": "「今天」就是現在這一天。"
+    "tip": "「今天」就是現在這一天。",
+    "meaningEn": "sky; day."
   },
   {
     "char": "月",
@@ -96,7 +106,8 @@
     "meaning": "月亮；月份。",
     "sentence": "今晚的月亮很亮。",
     "en": "The moon is very bright tonight.",
-    "tip": "「月」像彎彎的月亮。"
+    "tip": "「月」像彎彎的月亮。",
+    "meaningEn": "moon; month."
   },
   {
     "char": "日",
@@ -105,7 +116,8 @@
     "meaning": "太陽；一天；日子。",
     "sentence": "今天是星期日。",
     "en": "Today is Sunday.",
-    "tip": "「日」也常用來表示一天。"
+    "tip": "「日」也常用來表示一天。",
+    "meaningEn": "sun; day."
   },
   {
     "char": "水",
@@ -114,7 +126,8 @@
     "meaning": "水；液體。",
     "sentence": "請喝一杯水。",
     "en": "Please drink a glass of water.",
-    "tip": "寫「水」時注意中間的直畫。"
+    "tip": "寫「水」時注意中間的直畫。",
+    "meaningEn": "water; liquid."
   },
   {
     "char": "火",
@@ -123,7 +136,8 @@
     "meaning": "火；火焰。",
     "sentence": "小心，火很燙！",
     "en": "Be careful, the fire is hot!",
-    "tip": "「火」的四筆可以想成火焰向外飛。"
+    "tip": "「火」的四筆可以想成火焰向外飛。",
+    "meaningEn": "fire; flame."
   },
   {
     "char": "山",
@@ -132,7 +146,8 @@
     "meaning": "山；山峰。",
     "sentence": "我們週末去爬山。",
     "en": "We are going hiking this weekend.",
-    "tip": "「山」的外形像三座山峰。"
+    "tip": "「山」的外形像三座山峰。",
+    "meaningEn": "mountain."
   },
   {
     "char": "人",
@@ -141,7 +156,8 @@
     "meaning": "人；人類。",
     "sentence": "公園裡有很多人。",
     "en": "There are many people in the park.",
-    "tip": "「人」像兩個人互相靠著走路。"
+    "tip": "「人」像兩個人互相靠著走路。",
+    "meaningEn": "person; people."
   },
   {
     "char": "心",
@@ -150,7 +166,8 @@
     "meaning": "心；心情；內心。",
     "sentence": "我今天心情很好。",
     "en": "I am in a good mood today.",
-    "tip": "很多和感情有關的字都含有「心」。"
+    "tip": "很多和感情有關的字都含有「心」。",
+    "meaningEn": "heart; feelings; mind."
   },
   {
     "char": "口",
@@ -159,7 +176,8 @@
     "meaning": "嘴巴；入口；口。",
     "sentence": "張大你的口。",
     "en": "Open your mouth wide.",
-    "tip": "「口」就是嘴巴的形狀。"
+    "tip": "「口」就是嘴巴的形狀。",
+    "meaningEn": "mouth; opening."
   },
   {
     "char": "手",
@@ -168,7 +186,8 @@
     "meaning": "手；手部。",
     "sentence": "請舉起你的手。",
     "en": "Please raise your hand.",
-    "tip": "手是我們每天最常用的部位之一。"
+    "tip": "手是我們每天最常用的部位之一。",
+    "meaningEn": "hand."
   },
   {
     "char": "眼",
@@ -177,7 +196,8 @@
     "meaning": "眼睛；視力。",
     "sentence": "我的眼睛很酸。",
     "en": "My eyes feel tired.",
-    "tip": "「眼」和眼睛有關，左邊是「目」。"
+    "tip": "「眼」和眼睛有關，左邊是「目」。",
+    "meaningEn": "eye; eyesight."
   },
   {
     "char": "耳",
@@ -186,7 +206,8 @@
     "meaning": "耳朵。",
     "sentence": "我的耳朵聽到了聲音。",
     "en": "My ears heard a sound.",
-    "tip": "「耳」的字形像耳朵。"
+    "tip": "「耳」的字形像耳朵。",
+    "meaningEn": "ear."
   },
   {
     "char": "足",
@@ -195,7 +216,8 @@
     "meaning": "腳；足夠；足部。",
     "sentence": "我的雙足很累。",
     "en": "My feet are very tired.",
-    "tip": "「足」和腳、走路有關。"
+    "tip": "「足」和腳、走路有關。",
+    "meaningEn": "foot; feet; enough."
   },
   {
     "char": "學",
@@ -204,7 +226,8 @@
     "meaning": "學習；學問。",
     "sentence": "我每天學中文。",
     "en": "I learn Chinese every day.",
-    "tip": "「學」是學習，常見詞有「學校、學生」。"
+    "tip": "「學」是學習，常見詞有「學校、學生」。",
+    "meaningEn": "learn; study; learning."
   },
   {
     "char": "校",
@@ -213,7 +236,8 @@
     "meaning": "學校；校園。",
     "sentence": "我早上八點到學校。",
     "en": "I arrive at school at 8 a.m.",
-    "tip": "「學校」的「校」讀第四聲。"
+    "tip": "「學校」的「校」讀第四聲。",
+    "meaningEn": "school; campus."
   },
   {
     "char": "生",
@@ -222,7 +246,8 @@
     "meaning": "出生；生活；學生。",
     "sentence": "學生正在讀書。",
     "en": "The students are studying.",
-    "tip": "「生」可以表示生命、生長，也能組成「學生」。"
+    "tip": "「生」可以表示生命、生長，也能組成「學生」。",
+    "meaningEn": "life; be born; student."
   },
   {
     "char": "書",
@@ -231,7 +256,8 @@
     "meaning": "書；書本。",
     "sentence": "這本書很好看。",
     "en": "This book is very interesting.",
-    "tip": "「書」和閱讀、寫字常常一起出現。"
+    "tip": "「書」和閱讀、寫字常常一起出現。",
+    "meaningEn": "book."
   },
   {
     "char": "字",
@@ -240,7 +266,8 @@
     "meaning": "文字；字。",
     "sentence": "這個字怎麼念？",
     "en": "How do you pronounce this character?",
-    "tip": "「漢字」就是 Chinese characters。"
+    "tip": "「漢字」就是 Chinese characters。",
+    "meaningEn": "character; written word."
   },
   {
     "char": "文",
@@ -249,7 +276,8 @@
     "meaning": "文字；文章；文化。",
     "sentence": "我在寫一篇作文。",
     "en": "I am writing a composition.",
-    "tip": "「中文」的「文」就是文字、語文。"
+    "tip": "「中文」的「文」就是文字、語文。",
+    "meaningEn": "writing; article; culture."
   },
   {
     "char": "語",
@@ -258,7 +286,8 @@
     "meaning": "語言；說話。",
     "sentence": "中文是一種語言。",
     "en": "Chinese is a language.",
-    "tip": "「語」常出現在「語言、英語、中文」。"
+    "tip": "「語」常出現在「語言、英語、中文」。",
+    "meaningEn": "language; speech."
   },
   {
     "char": "中",
@@ -267,7 +296,8 @@
     "meaning": "中間；裡面；中國。",
     "sentence": "球在盒子中間。",
     "en": "The ball is in the middle of the box.",
-    "tip": "「中」最核心的意思是「在中間」。"
+    "tip": "「中」最核心的意思是「在中間」。",
+    "meaningEn": "middle; inside; China."
   },
   {
     "char": "國",
@@ -276,7 +306,8 @@
     "meaning": "國家。",
     "sentence": "加拿大是一個國家。",
     "en": "Canada is a country.",
-    "tip": "「國」的外框像一個保護城市的圍牆。"
+    "tip": "「國」的外框像一個保護城市的圍牆。",
+    "meaningEn": "country."
   },
   {
     "char": "家",
@@ -285,7 +316,8 @@
     "meaning": "家；家庭。",
     "sentence": "我喜歡回家。",
     "en": "I like going home.",
-    "tip": "「家」可以是住的地方，也可以指家人。"
+    "tip": "「家」可以是住的地方，也可以指家人。",
+    "meaningEn": "home; family."
   },
   {
     "char": "爸",
@@ -294,7 +326,8 @@
     "meaning": "爸爸；父親。",
     "sentence": "爸爸在廚房做飯。",
     "en": "Dad is cooking in the kitchen.",
-    "tip": "「爸」是口語中常用的爸爸稱呼。"
+    "tip": "「爸」是口語中常用的爸爸稱呼。",
+    "meaningEn": "dad; father."
   },
   {
     "char": "媽",
@@ -303,7 +336,8 @@
     "meaning": "媽媽；母親。",
     "sentence": "媽媽正在看書。",
     "en": "Mom is reading a book.",
-    "tip": "「媽」的右邊是「馬」。"
+    "tip": "「媽」的右邊是「馬」。",
+    "meaningEn": "mom; mother."
   },
   {
     "char": "朋",
@@ -312,7 +346,8 @@
     "meaning": "朋友的一部分；同類。",
     "sentence": "他是我的好朋友。",
     "en": "He is my good friend.",
-    "tip": "「朋」和「友」一起組成「朋友」。"
+    "tip": "「朋」和「友」一起組成「朋友」。",
+    "meaningEn": "friend (as in 朋友)."
   },
   {
     "char": "友",
@@ -321,7 +356,8 @@
     "meaning": "朋友；友好。",
     "sentence": "朋友會互相幫忙。",
     "en": "Friends help each other.",
-    "tip": "「友」是友誼、友情的「友」。"
+    "tip": "「友」是友誼、友情的「友」。",
+    "meaningEn": "friend; friendly."
   },
   {
     "char": "吃",
@@ -330,7 +366,8 @@
     "meaning": "吃東西。",
     "sentence": "我們一起吃水果。",
     "en": "Let’s eat fruit together.",
-    "tip": "「吃」常用在食物和三餐。"
+    "tip": "「吃」常用在食物和三餐。",
+    "meaningEn": "eat."
   },
   {
     "char": "喝",
@@ -339,7 +376,8 @@
     "meaning": "飲用液體。",
     "sentence": "運動後要喝水。",
     "en": "Drink water after exercising.",
-    "tip": "「喝」是喝飲料、喝水的動作。"
+    "tip": "「喝」是喝飲料、喝水的動作。",
+    "meaningEn": "drink."
   },
   {
     "char": "看",
@@ -348,7 +386,8 @@
     "meaning": "看；觀看；閱讀。",
     "sentence": "我喜歡看故事書。",
     "en": "I like reading storybooks.",
-    "tip": "「看」可以是用眼睛看，也可以是觀看。"
+    "tip": "「看」可以是用眼睛看，也可以是觀看。",
+    "meaningEn": "look; watch; read."
   },
   {
     "char": "聽",
@@ -357,7 +396,8 @@
     "meaning": "聽見；聆聽。",
     "sentence": "請仔細聽老師說話。",
     "en": "Please listen carefully to the teacher.",
-    "tip": "「聽」和耳朵有關，左邊是「耳」。"
+    "tip": "「聽」和耳朵有關，左邊是「耳」。",
+    "meaningEn": "listen; hear."
   },
   {
     "char": "說",
@@ -366,7 +406,8 @@
     "meaning": "說話；告訴。",
     "sentence": "請大聲說一次。",
     "en": "Please say it one more time loudly.",
-    "tip": "「說」和語言、說話有關。"
+    "tip": "「說」和語言、說話有關。",
+    "meaningEn": "say; speak; tell."
   },
   {
     "char": "讀",
@@ -375,7 +416,8 @@
     "meaning": "閱讀；朗讀。",
     "sentence": "我正在讀一本小說。",
     "en": "I am reading a novel.",
-    "tip": "「讀」是把文字讀出來或閱讀。"
+    "tip": "「讀」是把文字讀出來或閱讀。",
+    "meaningEn": "read; read aloud."
   },
   {
     "char": "寫",
@@ -384,7 +426,8 @@
     "meaning": "寫字；書寫。",
     "sentence": "我每天寫日記。",
     "en": "I write a diary every day.",
-    "tip": "寫字時要注意筆順，會更容易寫得漂亮。"
+    "tip": "寫字時要注意筆順，會更容易寫得漂亮。",
+    "meaningEn": "write."
   },
   {
     "char": "走",
@@ -393,7 +436,8 @@
     "meaning": "走路；離開。",
     "sentence": "我們一起走回家。",
     "en": "Let’s walk home together.",
-    "tip": "「走」和腳的動作很有關係。"
+    "tip": "「走」和腳的動作很有關係。",
+    "meaningEn": "walk; leave."
   },
   {
     "char": "跑",
@@ -402,7 +446,8 @@
     "meaning": "跑步；快速行走。",
     "sentence": "弟弟喜歡在公園跑步。",
     "en": "My little brother likes running in the park.",
-    "tip": "「跑」是「走」得更快。"
+    "tip": "「跑」是「走」得更快。",
+    "meaningEn": "run."
   },
   {
     "char": "玩",
@@ -411,7 +456,8 @@
     "meaning": "遊玩；遊戲。",
     "sentence": "放學後我們一起玩。",
     "en": "We play together after school.",
-    "tip": "「玩」常和遊戲、活動放在一起。"
+    "tip": "「玩」常和遊戲、活動放在一起。",
+    "meaningEn": "play; have fun."
   },
   {
     "char": "來",
@@ -420,7 +466,8 @@
     "meaning": "來到；來自。",
     "sentence": "歡迎你來我家。",
     "en": "Welcome to my home.",
-    "tip": "「來」和「去」是方向相反的一對。"
+    "tip": "「來」和「去」是方向相反的一對。",
+    "meaningEn": "come; arrive; come from."
   },
   {
     "char": "去",
@@ -429,7 +476,8 @@
     "meaning": "前往；離開。",
     "sentence": "我們下午去公園。",
     "en": "We are going to the park this afternoon.",
-    "tip": "「去」表示從這裡往別的地方。"
+    "tip": "「去」表示從這裡往別的地方。",
+    "meaningEn": "go; leave."
   },
   {
     "char": "有",
@@ -438,7 +486,8 @@
     "meaning": "擁有；存在。",
     "sentence": "桌上有三本書。",
     "en": "There are three books on the table.",
-    "tip": "「有」可以表示擁有，也可以表示某個地方存在。"
+    "tip": "「有」可以表示擁有，也可以表示某個地方存在。",
+    "meaningEn": "have; there is/are."
   },
   {
     "char": "沒",
@@ -447,7 +496,8 @@
     "meaning": "沒有；不曾。",
     "sentence": "我沒有看電視。",
     "en": "I did not watch TV.",
-    "tip": "「沒有」是非常常見的否定說法。"
+    "tip": "「沒有」是非常常見的否定說法。",
+    "meaningEn": "not have; did not."
   },
   {
     "char": "是",
@@ -456,7 +506,8 @@
     "meaning": "是；表示判斷或確認。",
     "sentence": "這是我的鉛筆。",
     "en": "This is my pencil.",
-    "tip": "「是」常用來連接人、事物和名稱。"
+    "tip": "「是」常用來連接人、事物和名稱。",
+    "meaningEn": "is; am; are; yes."
   },
   {
     "char": "不",
@@ -465,7 +516,8 @@
     "meaning": "不；表示否定。",
     "sentence": "我不喜歡下雨天。",
     "en": "I do not like rainy days.",
-    "tip": "「不」是否定詞，常放在動詞前面。"
+    "tip": "「不」是否定詞，常放在動詞前面。",
+    "meaningEn": "not; no."
   },
   {
     "char": "要",
@@ -474,7 +526,8 @@
     "meaning": "要；需要；將要。",
     "sentence": "我要喝水。",
     "en": "I want to drink water.",
-    "tip": "「要」可以表示想要、需要或即將發生。"
+    "tip": "「要」可以表示想要、需要或即將發生。",
+    "meaningEn": "want; need; will."
   },
   {
     "char": "能",
@@ -483,7 +536,8 @@
     "meaning": "能夠；可以。",
     "sentence": "你能幫我嗎？",
     "en": "Can you help me?",
-    "tip": "「能」表示有能力做到某件事。"
+    "tip": "「能」表示有能力做到某件事。",
+    "meaningEn": "can; be able to."
   },
   {
     "char": "會",
@@ -492,7 +546,8 @@
     "meaning": "會；懂得；可能。",
     "sentence": "我會騎腳踏車。",
     "en": "I can ride a bicycle.",
-    "tip": "「會」也可以表示未來可能發生。"
+    "tip": "「會」也可以表示未來可能發生。",
+    "meaningEn": "can; know how to; may."
   },
   {
     "char": "在",
@@ -501,7 +556,8 @@
     "meaning": "在；位於；正在。",
     "sentence": "我在家寫作業。",
     "en": "I am at home doing homework.",
-    "tip": "「在」可以表示位置，也可以表示正在做事。"
+    "tip": "「在」可以表示位置，也可以表示正在做事。",
+    "meaningEn": "be at; be located at; be doing."
   },
   {
     "char": "和",
@@ -510,7 +566,8 @@
     "meaning": "和；與；一起。",
     "sentence": "我和妹妹一起看書。",
     "en": "My sister and I read together.",
-    "tip": "「和」常用來連接兩個人或兩件事。"
+    "tip": "「和」常用來連接兩個人或兩件事。",
+    "meaningEn": "and; with; together with."
   },
   {
     "char": "新",
@@ -519,7 +576,8 @@
     "meaning": "新；不舊。",
     "sentence": "我有一本新書。",
     "en": "I have a new book.",
-    "tip": "「新」和「舊」是相反詞。"
+    "tip": "「新」和「舊」是相反詞。",
+    "meaningEn": "new."
   },
   {
     "char": "舊",
@@ -528,7 +586,8 @@
     "meaning": "舊；使用過的；不新。",
     "sentence": "這是我的舊玩具。",
     "en": "This is my old toy.",
-    "tip": "「舊」和「新」相反。"
+    "tip": "「舊」和「新」相反。",
+    "meaningEn": "old; used."
   },
   {
     "char": "快",
@@ -537,7 +596,8 @@
     "meaning": "快速；快樂。",
     "sentence": "他跑得很快。",
     "en": "He runs very fast.",
-    "tip": "「快」可以表示速度，也可以出現在「快樂」。"
+    "tip": "「快」可以表示速度，也可以出現在「快樂」。",
+    "meaningEn": "fast; quick; happy."
   },
   {
     "char": "慢",
@@ -546,7 +606,8 @@
     "meaning": "速度不快。",
     "sentence": "請慢慢走。",
     "en": "Please walk slowly.",
-    "tip": "「慢」和「快」是一組相反詞。"
+    "tip": "「慢」和「快」是一組相反詞。",
+    "meaningEn": "slow."
   },
   {
     "char": "多",
@@ -555,7 +616,8 @@
     "meaning": "數量多；很多。",
     "sentence": "今天有很多人。",
     "en": "There are many people today.",
-    "tip": "「多」和「少」是相反詞。"
+    "tip": "「多」和「少」是相反詞。",
+    "meaningEn": "many; much."
   },
   {
     "char": "少",
@@ -564,7 +626,8 @@
     "meaning": "數量少；不多。",
     "sentence": "杯子裡的水很少。",
     "en": "There is very little water in the cup.",
-    "tip": "「少」和「多」相反。"
+    "tip": "「少」和「多」相反。",
+    "meaningEn": "few; little."
   },
   {
     "char": "高",
@@ -573,7 +636,8 @@
     "meaning": "高；高度大。",
     "sentence": "那棟樓很高。",
     "en": "That building is very tall.",
-    "tip": "「高」和「低」相反。"
+    "tip": "「高」和「低」相反。",
+    "meaningEn": "high; tall."
   },
   {
     "char": "低",
@@ -582,7 +646,8 @@
     "meaning": "低；高度小。",
     "sentence": "桌子太低了。",
     "en": "The table is too low.",
-    "tip": "「低」和「高」相反。"
+    "tip": "「低」和「高」相反。",
+    "meaningEn": "low."
   },
   {
     "char": "長",
@@ -591,7 +656,8 @@
     "meaning": "長；長度大。",
     "sentence": "這條路很長。",
     "en": "This road is very long.",
-    "tip": "「長」和「短」相反。"
+    "tip": "「長」和「短」相反。",
+    "meaningEn": "long."
   },
   {
     "char": "短",
@@ -600,7 +666,8 @@
     "meaning": "短；長度小。",
     "sentence": "這支鉛筆太短了。",
     "en": "This pencil is too short.",
-    "tip": "「短」和「長」相反。"
+    "tip": "「短」和「長」相反。",
+    "meaningEn": "short."
   },
   {
     "char": "白",
@@ -609,7 +676,8 @@
     "meaning": "白色；明亮。",
     "sentence": "我有一隻白貓。",
     "en": "I have a white cat.",
-    "tip": "「白」和「黑」是基本顏色詞。"
+    "tip": "「白」和「黑」是基本顏色詞。",
+    "meaningEn": "white; bright."
   },
   {
     "char": "黑",
@@ -618,7 +686,8 @@
     "meaning": "黑色；暗。",
     "sentence": "黑夜裡有很多星星。",
     "en": "There are many stars in the dark night.",
-    "tip": "「黑」和「白」相反。"
+    "tip": "「黑」和「白」相反。",
+    "meaningEn": "black; dark."
   },
   {
     "char": "紅",
@@ -627,7 +696,8 @@
     "meaning": "紅色。",
     "sentence": "她穿著紅色的外套。",
     "en": "She is wearing a red coat.",
-    "tip": "「紅」是很常見的顏色字。"
+    "tip": "「紅」是很常見的顏色字。",
+    "meaningEn": "red."
   },
   {
     "char": "花",
@@ -636,7 +706,8 @@
     "meaning": "花朵；植物的花。",
     "sentence": "春天的花開了。",
     "en": "The flowers bloom in spring.",
-    "tip": "「花」也可以指花朵的總稱。"
+    "tip": "「花」也可以指花朵的總稱。",
+    "meaningEn": "flower."
   },
   {
     "char": "草",
@@ -645,7 +716,8 @@
     "meaning": "草；草本植物。",
     "sentence": "小狗在草地上玩。",
     "en": "The dog is playing on the grass.",
-    "tip": "「草」常和草地、青草一起使用。"
+    "tip": "「草」常和草地、青草一起使用。",
+    "meaningEn": "grass; plant."
   },
   {
     "char": "樹",
@@ -654,7 +726,8 @@
     "meaning": "樹木。",
     "sentence": "門口有一棵大樹。",
     "en": "There is a big tree by the entrance.",
-    "tip": "「樹」常用來表示有木質主幹的植物。"
+    "tip": "「樹」常用來表示有木質主幹的植物。",
+    "meaningEn": "tree."
   },
   {
     "char": "鳥",
@@ -663,7 +736,8 @@
     "meaning": "鳥類。",
     "sentence": "一隻鳥飛過天空。",
     "en": "A bird flew across the sky.",
-    "tip": "「鳥」看起來像一隻側身的小鳥。"
+    "tip": "「鳥」看起來像一隻側身的小鳥。",
+    "meaningEn": "bird."
   },
   {
     "char": "魚",
@@ -672,7 +746,8 @@
     "meaning": "魚類。",
     "sentence": "魚在水裡游。",
     "en": "Fish swim in the water.",
-    "tip": "「魚」的下方四點可想成水。"
+    "tip": "「魚」的下方四點可想成水。",
+    "meaningEn": "fish."
   },
   {
     "char": "貓",
@@ -681,7 +756,8 @@
     "meaning": "貓。",
     "sentence": "那隻貓正在睡覺。",
     "en": "That cat is sleeping.",
-    "tip": "「貓」的左邊是「犬」的字形部件。"
+    "tip": "「貓」的左邊是「犬」的字形部件。",
+    "meaningEn": "cat."
   },
   {
     "char": "狗",
@@ -690,7 +766,8 @@
     "meaning": "狗。",
     "sentence": "我家的狗很可愛。",
     "en": "My dog is very cute.",
-    "tip": "「狗」是日常很常見的動物字。"
+    "tip": "「狗」是日常很常見的動物字。",
+    "meaningEn": "dog."
   },
   {
     "char": "車",
@@ -699,7 +776,8 @@
     "meaning": "車子；交通工具。",
     "sentence": "爸爸開車去上班。",
     "en": "Dad drives to work.",
-    "tip": "「車」和交通有關，常見詞有汽車、火車。"
+    "tip": "「車」和交通有關，常見詞有汽車、火車。",
+    "meaningEn": "car; vehicle."
   },
   {
     "char": "門",
@@ -708,7 +786,8 @@
     "meaning": "門；入口。",
     "sentence": "請把門關起來。",
     "en": "Please close the door.",
-    "tip": "「門」像兩扇門打開的樣子。"
+    "tip": "「門」像兩扇門打開的樣子。",
+    "meaningEn": "door; entrance."
   },
   {
     "char": "家",
@@ -717,7 +796,8 @@
     "meaning": "家；家庭。",
     "sentence": "晚餐後我們回家。",
     "en": "We go home after dinner.",
-    "tip": "「家」也是學習和生活最常用的字之一。"
+    "tip": "「家」也是學習和生活最常用的字之一。",
+    "meaningEn": "home; family."
   },
   {
     "char": "吃",
@@ -726,7 +806,8 @@
     "meaning": "吃東西。",
     "sentence": "早餐要吃得健康。",
     "en": "Eat a healthy breakfast.",
-    "tip": "「吃」是三餐中很常用的動詞。"
+    "tip": "「吃」是三餐中很常用的動詞。",
+    "meaningEn": "eat."
   },
   {
     "char": "笑",
@@ -735,7 +816,8 @@
     "meaning": "笑；微笑。",
     "sentence": "妹妹笑得很開心。",
     "en": "My little sister is smiling happily.",
-    "tip": "「笑」可以是微笑、大笑，也可以描述開心的樣子。"
+    "tip": "「笑」可以是微笑、大笑，也可以描述開心的樣子。",
+    "meaningEn": "laugh; smile."
   },
   {
     "char": "開",
@@ -744,7 +826,8 @@
     "meaning": "打開；開始；開啟。",
     "sentence": "請把窗戶打開。",
     "en": "Please open the window.",
-    "tip": "「開」和「關」是一組常見反義詞。"
+    "tip": "「開」和「關」是一組常見反義詞。",
+    "meaningEn": "open; start; turn on."
   },
   {
     "char": "關",
@@ -753,7 +836,8 @@
     "meaning": "關閉；關上。",
     "sentence": "睡覺前要關燈。",
     "en": "Turn off the light before bed.",
-    "tip": "「關」和「開」常常成對使用。"
+    "tip": "「關」和「開」常常成對使用。",
+    "meaningEn": "close; shut; turn off."
   },
   {
     "char": "明",
@@ -762,7 +846,8 @@
     "meaning": "明亮；明白；明天。",
     "sentence": "明天見！",
     "en": "See you tomorrow!",
-    "tip": "「明」可以和太陽、月亮聯想在一起。"
+    "tip": "「明」可以和太陽、月亮聯想在一起。",
+    "meaningEn": "bright; understand; tomorrow."
   },
   {
     "char": "早",
@@ -771,7 +856,8 @@
     "meaning": "早；時間不晚。",
     "sentence": "早安，今天也要加油！",
     "en": "Good morning. Let’s do our best today!",
-    "tip": "「早安」是早上的問候語。"
+    "tip": "「早安」是早上的問候語。",
+    "meaningEn": "early."
   },
   {
     "char": "晚",
@@ -780,7 +866,8 @@
     "meaning": "晚；晚上的時間。",
     "sentence": "晚安，祝你做個好夢。",
     "en": "Good night. Sweet dreams.",
-    "tip": "「早」和「晚」是時間上的對比。"
+    "tip": "「早」和「晚」是時間上的對比。",
+    "meaningEn": "late; evening/night."
   },
   {
     "char": "年",
@@ -789,7 +876,8 @@
     "meaning": "年；一年。",
     "sentence": "我今年十歲。",
     "en": "I am ten years old this year.",
-    "tip": "「今年、明年、去年」都會用到「年」。"
+    "tip": "「今年、明年、去年」都會用到「年」。",
+    "meaningEn": "year."
   },
   {
     "char": "今",
@@ -798,7 +886,8 @@
     "meaning": "現在；今天。",
     "sentence": "今天是很特別的一天。",
     "en": "Today is a special day.",
-    "tip": "「今」常和「天」合成「今天」。"
+    "tip": "「今」常和「天」合成「今天」。",
+    "meaningEn": "now; today."
   },
   {
     "char": "前",
@@ -807,7 +896,8 @@
     "meaning": "前面；以前；先前。",
     "sentence": "請站到我前面。",
     "en": "Please stand in front of me.",
-    "tip": "「前」和「後」是方向或時間上的相對概念。"
+    "tip": "「前」和「後」是方向或時間上的相對概念。",
+    "meaningEn": "front; before."
   },
   {
     "char": "後",
@@ -816,7 +906,8 @@
     "meaning": "後面；以後。",
     "sentence": "書包在椅子後面。",
     "en": "The backpack is behind the chair.",
-    "tip": "「後」和「前」常常一起學。"
+    "tip": "「後」和「前」常常一起學。",
+    "meaningEn": "behind; after."
   },
   {
     "char": "回",
@@ -825,7 +916,8 @@
     "meaning": "回去；返回；一次。",
     "sentence": "放學後我回家。",
     "en": "I go home after school.",
-    "tip": "「回」像轉一圈回到原來的地方。"
+    "tip": "「回」像轉一圈回到原來的地方。",
+    "meaningEn": "return; go back; time/occurrence."
   },
   {
     "char": "從",
@@ -834,7 +926,8 @@
     "meaning": "從；由。",
     "sentence": "我從家裡走到公園。",
     "en": "I walk from home to the park.",
-    "tip": "「從」用來說明出發的地方。"
+    "tip": "「從」用來說明出發的地方。",
+    "meaningEn": "from."
   },
   {
     "char": "到",
@@ -843,7 +936,8 @@
     "meaning": "到達；直到。",
     "sentence": "我八點到學校。",
     "en": "I arrive at school at eight.",
-    "tip": "「到」可以表示到達目的地。"
+    "tip": "「到」可以表示到達目的地。",
+    "meaningEn": "arrive; reach; until."
   },
   {
     "char": "給",
@@ -852,7 +946,8 @@
     "meaning": "給予；交給。",
     "sentence": "請給我一張紙。",
     "en": "Please give me a piece of paper.",
-    "tip": "「給」常用在請求、分享和送出東西。"
+    "tip": "「給」常用在請求、分享和送出東西。",
+    "meaningEn": "give; hand to."
   },
   {
     "char": "要",
@@ -861,6 +956,7 @@
     "meaning": "要；需要；即將。",
     "sentence": "下雨了，要記得帶傘。",
     "en": "It is raining, so remember to bring an umbrella.",
-    "tip": "「要」可以表示需要或即將。"
+    "tip": "「要」可以表示需要或即將。",
+    "meaningEn": "want; need; will."
   }
 ]

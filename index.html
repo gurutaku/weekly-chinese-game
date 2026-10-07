@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#fffaf4" />
-  <meta name="description" content="每週 10 個中文字學習遊戲：筆順、注音、發音、意思、例句與練習。" />
-  <title>每週學 10 個中文字</title>
+  <meta name="theme-color" content="#eef7ff" />
+  <meta name="description" content="A kid-friendly weekly Chinese character learning game with stroke order, pronunciation, meanings, examples, and writing practice." />
+  <title>Learn 10 Chinese Characters a Week</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,20 +13,20 @@
   <div class="app-shell">
     <header class="topbar">
       <div>
-        <div class="eyebrow">中文學習小遊戲</div>
-        <h1>每週 10 個中文字 <span class="spark">✦</span></h1>
-        <p class="subtitle">看筆順、聽發音、學注音、讀意思，全年 520 字，每週 10 字，最後自己寫寫看。</p>
+        <div class="eyebrow">🌟 CHINESE CHARACTER ADVENTURE</div>
+        <h1>Learn 10 Chinese Characters a Week <span class="spark">✦</span></h1>
+        <p class="subtitle">Learn a few Chinese characters at a time! See how each character is written, hear how it sounds, learn what it means, and try writing it yourself.</p>
       </div>
-      <button id="resetProgress" class="ghost-btn" type="button" title="清除本機學習紀錄">重設紀錄</button>
+      <button id="resetProgress" class="ghost-btn" type="button" title="Clear your learning progress on this device">Reset Progress</button>
     </header>
 
     <main>
       <section class="week-hero card">
         <div class="hero-main">
-          <div class="week-label">本週學習</div>
-          <div id="weekRange" class="week-range">載入中…</div>
-          <div id="progressText" class="progress-text">0 / 10 已完成</div>
-          <div class="progress-track" aria-label="本週完成進度">
+          <div class="week-label">THIS WEEK</div>
+          <div id="weekRange" class="week-range">Loading…</div>
+          <div id="progressText" class="progress-text">0 / 10 completed</div>
+          <div class="progress-track" aria-label="Weekly completion progress">
             <div id="progressBar" class="progress-bar" style="width: 0%"></div>
           </div>
         </div>
@@ -34,49 +34,51 @@
           <div class="streak-card">
             <div class="streak-icon">🔥</div>
             <div>
-              <div class="mini-label">連續學習</div>
-              <strong id="streakValue">0 天</strong>
+              <div class="mini-label">DAY STREAK</div>
+              <strong id="streakValue">0 days</strong>
             </div>
           </div>
-          <button id="startPractice" class="primary-btn" type="button">開始本週練習</button>
+          <button id="startPractice" class="primary-btn" type="button">Start Practice</button>
         </div>
       </section>
 
-      <section id="characterGrid" class="character-grid" aria-label="本週 10 個中文字"></section>
+      <section class="how-to card" aria-label="How to learn"><div class="how-step"><span>1</span><div><strong>See it</strong><small>Look at the character and its pronunciation.</small></div></div><div class="how-step"><span>2</span><div><strong>Hear it</strong><small>Tap 🔊 to hear the Chinese pronunciation.</small></div></div><div class="how-step"><span>3</span><div><strong>Write it</strong><small>Watch the stroke order, then try it yourself.</small></div></div></section>
+
+      <section id="characterGrid" class="character-grid" aria-label="This week's 10 Chinese characters"></section>
 
       <section id="learn-panel" class="learn-panel card" aria-live="polite">
         <div class="panel-head">
           <div>
-            <div class="week-label">正在學</div>
-            <h2 id="selectedTitle">請選一個字</h2>
+            <div class="week-label">LEARNING NOW</div>
+            <h2 id="selectedTitle">Choose a character</h2>
           </div>
           <div class="head-actions">
-            <button id="speakBtn" class="icon-btn" type="button" aria-label="播放發音">🔊</button>
-            <button id="markBtn" class="soft-btn" type="button">標記完成</button>
+            <button id="speakBtn" class="icon-btn" type="button" aria-label="Hear Chinese pronunciation" title="Hear Chinese pronunciation">🔊</button>
+            <button id="markBtn" class="soft-btn" type="button">Mark Complete</button>
           </div>
         </div>
 
         <div class="learning-layout">
           <div class="stroke-card">
             <div class="stroke-toolbar">
-              <span>筆順</span>
+              <span>Stroke Order</span>
               <div class="stroke-actions">
-                <button id="animateBtn" class="tiny-btn" type="button">播放</button>
-                <button id="quizBtn" class="tiny-btn accent" type="button">我來寫</button>
+                <button id="animateBtn" class="tiny-btn" type="button">Play</button>
+                <button id="quizBtn" class="tiny-btn accent" type="button">Write It!</button>
               </div>
             </div>
-            <div id="writer" class="writer" aria-label="中文字筆順動畫區"></div>
-            <div id="writerStatus" class="writer-status">選字後載入筆順。</div>
+            <div id="writer" class="writer" aria-label="Chinese character stroke order animation"></div>
+            <div id="writerStatus" class="writer-status">Choose a character to load the stroke order.</div>
           </div>
 
           <div class="facts-card">
             <div class="pronunciation-row">
               <div class="fact-block">
-                <div class="fact-label">注音</div>
+                <div class="fact-label">ZHUYIN (BOPOMOFO)</div>
                 <div id="bopomofo" class="bopomofo">—</div>
               </div>
               <div class="fact-block">
-                <div class="fact-label">發音</div>
+                <div class="fact-label">PINYIN</div>
                 <div id="pinyin" class="pinyin">—</div>
               </div>
             </div>
@@ -85,24 +87,24 @@
 
             <div class="meaning-block">
               <div class="fact-heading">
-                <div class="fact-label">意思</div>
-                <button id="meaningSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="朗讀意思" title="朗讀意思">🔊 朗讀</button>
+                <div class="fact-label">MEANING</div>
+                <button id="meaningSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="Hear the English meaning" title="Hear the English meaning">🔊 Hear English</button>
               </div>
               <div id="meaning" class="meaning">—</div>
             </div>
 
             <div class="sentence-block">
               <div class="fact-heading">
-                <div class="fact-label">例句</div>
-                <button id="sentenceSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="朗讀例句" title="朗讀例句">🔊 朗讀</button>
+                <div class="fact-label">EXAMPLE SENTENCE</div>
+                <button id="sentenceSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="Hear the English example" title="Hear the English example">🔊 Hear English</button>
               </div>
-              <div id="sentence" class="sentence">—</div>
-              <div id="sentenceEnglish" class="sentence-en">—</div>
+              <div id="sentence" class="sentence"><span class="language-label">Chinese:</span> —</div>
+              <div id="sentenceEnglish" class="sentence-en"><span class="language-label">English:</span> —</div>
             </div>
 
             <div class="tip-box">
               <span class="tip-icon">💡</span>
-              <span id="tipText">先看清楚每一筆從哪裡開始，再跟著寫。</span>
+              <span id="tipText">Tip: Watch the stroke order first, then try writing the character yourself.</span>
             </div>
           </div>
         </div>
@@ -111,23 +113,23 @@
       <section id="practiceSection" class="practice-panel card hidden">
         <div class="panel-head">
           <div>
-            <div class="week-label">小測驗</div>
-            <h2>你記得哪一個字？</h2>
+            <div class="week-label">MINI QUIZ</div>
+            <h2>Which character matches the sound?</h2>
           </div>
-          <button id="closePractice" class="ghost-btn" type="button">回到學習</button>
+          <button id="closePractice" class="ghost-btn" type="button">Back to Learning</button>
         </div>
         <div class="practice-content">
-          <div id="practicePrompt" class="practice-prompt">注音：—</div>
+          <div id="practicePrompt" class="practice-prompt">Zhuyin sound: —</div>
           <div class="practice-choices" id="practiceChoices"></div>
           <div id="practiceFeedback" class="practice-feedback" aria-live="polite"></div>
-          <button id="nextQuestion" class="primary-btn hidden" type="button">下一題</button>
+          <button id="nextQuestion" class="primary-btn hidden" type="button">Next Question</button>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <span>適合手機、平板與桌面瀏覽器</span>
-      <span>進度只保存在這台裝置的瀏覽器中</span>
+      <span>Made for phones, tablets, and desktop browsers</span>
+      <span>Your progress stays on this device</span>
     </footer>
   </div>
 
