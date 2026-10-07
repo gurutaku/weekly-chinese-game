@@ -538,7 +538,7 @@ function startPractice() {
   });
 
   speakEnglish(
-    'Let’s practice! Read the Bopomofo sound and choose the matching Chinese character.'
+    'Let’s practice! Which character matches the sound?'
   );
 
   renderPracticeQuestion();
@@ -563,7 +563,7 @@ function renderPracticeQuestion() {
     weekly[idx];
 
   $('practicePrompt').textContent =
-    `Which character has this Bopomofo sound?  ${target.bopomofo}`;
+    `Bopomofo sound:  ${target.bopomofo}`;
 
   const others =
     shuffle(
