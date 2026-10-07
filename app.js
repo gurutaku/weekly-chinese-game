@@ -297,7 +297,7 @@ function renderWeekMeta() {
 
   $('weekRange').textContent =
     Number.isFinite(firstRank) && Number.isFinite(lastRank)
-      ? `Frequency ranks ${firstRank}–${lastRank}`
+      ? `Popular Words ${firstRank}–${lastRank}`
       : `Week ${selectedWeekIndex + 1}`;
 
   $('streakValue').textContent =
