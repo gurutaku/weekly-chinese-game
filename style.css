@@ -162,10 +162,25 @@ h2 { margin: 5px 0 0; font-size: 30px; letter-spacing: -.03em; }
 .stroke-toolbar { display: flex; align-items: center; justify-content: space-between; font-weight: 900; }
 .stroke-actions { display: flex; gap: 7px; }
 .writer {
-  width: 100%; aspect-ratio: 1 / 1; min-height: 300px; margin-top: 4px; display: grid; place-items: center; overflow: hidden;
-  background: #f8fcff; border-radius: 18px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 300px;
+  margin-top: 4px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #f8fcff;
+  border-radius: 18px;
+  box-sizing: border-box;
+  padding: 6px;
 }
-.writer svg { max-width: 100%; max-height: 100%; }
+.writer svg {
+  display: block;
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+}
 .writer-status { color: var(--muted); text-align: center; font-size: 13px; min-height: 22px; padding-top: 5px; }
 .facts-card { padding: 22px; }
 .pronunciation-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }

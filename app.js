@@ -126,16 +126,29 @@ function renderGrid() {
 }
 
 function initWriter(char) {
+  const writerEl = $('writer');
+
   if (!window.HanziWriter) {
-    $('writer').textContent = char;
+    writerEl.textContent = char;
     $('writerStatus').textContent = 'The stroke-order tool is not loaded. Please check your connection and refresh.';
     return;
   }
-  $('writer').innerHTML = '';
+
+  writerEl.innerHTML = '';
+
   try {
+    // Hanzi Writer works best with explicit pixel dimensions. Using the
+    // container's smaller dimension keeps the whole character inside the
+    // stroke-order window on phones, tablets, and desktops.
+    const rect = writerEl.getBoundingClientRect();
+    const size = Math.max(180, Math.floor(Math.min(rect.width, rect.height)));
+
     writer = HanziWriter.create('writer', char, {
-      width: '100%', height: '100%', padding: 12,
-      showOutline: true, showCharacter: false,
+      width: size,
+      height: size,
+      padding: Math.round(size * 0.12),
+      showOutline: true,
+      showCharacter: false,
       strokeAnimationSpeed: 1,
       strokeColor: '#d84b45',
       radicalColor: '#d84b45',
@@ -145,11 +158,17 @@ function initWriter(char) {
       strokeFadeDuration: 300,
       strokeHighlightDuration: 180,
       delayBetweenStrokes: 180,
-      onLoadCharDataSuccess: () => { $('writerStatus').textContent = 'Stroke order loaded. Watch it once, then try it yourself.'; },
-      onLoadCharDataError: () => { $('writerStatus').textContent = 'Stroke-order data for this character could not be found.'; }
+      onLoadCharDataSuccess: () => {
+        $('writerStatus').textContent = 'Stroke order loaded. Watch it once, then try it yourself.';
+      },
+      onLoadCharDataError: () => {
+        $('writerStatus').textContent = 'Stroke-order data for this character could not be found.';
+      }
     });
+
     $('writerStatus').textContent = 'Loading stroke order…';
   } catch (e) {
+    console.error('Hanzi Writer error:', e);
     $('writerStatus').textContent = 'The stroke-order tool had a problem. Please refresh the page.';
   }
 }
@@ -283,7 +302,7 @@ function setupEventListeners() {
   });
   $('sentenceSpeakBtn').addEventListener('click', () => {
     const item = weekly[selectedIndex];
-    if (item) speakEnglish(`Example sentence: ${item.en}`);
+    if (item) speakChinese(item.sentence);
   });
   $('resetProgress').addEventListener('click', () => {
     if (!confirm('Clear all learning progress saved on this device?')) return;
