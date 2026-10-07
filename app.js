@@ -1,22 +1,42 @@
-const HANZI_POOL = [
-  { char:'手', bopomofo:'ㄕㄡˇ', pinyin:'shǒu', meaning:'手；手部。', sentence:'請舉起你的手。', en:'Please raise your hand.', tip:'手是我們每天最常用的部位之一。' },
-  { char:'眼', bopomofo:'ㄧㄢˇ', pinyin:'yǎn', meaning:'眼睛；視力。', sentence:'我的眼睛很酸。', en:'My eyes feel tired.', tip:'「眼」和眼睛有關，左邊是「目」。' },
-  { char:'耳', bopomofo:'ㄦˇ', pinyin:'ěr', meaning:'耳朵。', sentence:'我的耳朵聽到了聲音。', en:'My ears heard a sound.', tip:'「耳」的字形像耳朵。' },
-  { char:'足', bopomofo:'ㄗㄨˊ', pinyin:'zú', meaning:'腳；足夠；足部。', sentence:'我的雙足很累。', en:'My feet are very tired.', tip:'「足」和腳、走路有關。' },
-  { char:'學', bopomofo:'ㄒㄩㄝˊ', pinyin:'xué', meaning:'學習；學問。', sentence:'我每天學中文。', en:'I learn Chinese every day.', tip:'「學」是學習，常見詞有「學校、學生」。' },
-  { char:'校', bopomofo:'ㄒㄧㄠˋ', pinyin:'xiào', meaning:'學校；校園。', sentence:'我早上八點到學校。', en:'I arrive at school at 8 a.m.', tip:'「學校」的「校」讀第四聲。' },
-  { char:'生', bopomofo:'ㄕㄥ', pinyin:'shēng', meaning:'出生；生活；學生。', sentence:'學生正在讀書。', en:'The students are studying.', tip:'「生」可以表示生命、生長，也能組成「學生」。' },
-  { char:'書', bopomofo:'ㄕㄨ', pinyin:'shū', meaning:'書；書本。', sentence:'這本書很好看。', en:'This book is very interesting.', tip:'「書」和閱讀、寫字常常一起出現。' },
-  { char:'字', bopomofo:'ㄗˋ', pinyin:'zì', meaning:'文字；字。', sentence:'這個字怎麼念？', en:'How do you pronounce this character?', tip:'「漢字」就是 Chinese characters。' },
-  { char:'文', bopomofo:'ㄨㄣˊ', pinyin:'wén', meaning:'文字；文章；文化。', sentence:'我在寫一篇作文。', en:'I am writing a composition.', tip:'「中文」的「文」就是文字、語文。' }
-];
+let HANZI_POOL = [];
+let DATA = [];
 
-// Remove duplicate characters while keeping the first definition.
-const DATA = Array.from(new Map(HANZI_POOL.map(item => [item.char, item])).values());
+async function loadWords() {
+  const response = await fetch('./words.json', { cache: 'no-cache' });
+
+  if (!response.ok) {
+    throw new Error(`Failed to load words.json: ${response.status}`);
+  }
+
+  const words = await response.json();
+
+  if (!Array.isArray(words)) {
+    throw new Error('words.json must contain an array of character objects.');
+  }
+
+  HANZI_POOL = words;
+
+  // Remove duplicate characters while keeping the first definition.
+  DATA = Array.from(
+    new Map(
+      HANZI_POOL
+        .filter(item => item && typeof item.char === 'string' && item.char.trim())
+        .map(item => [item.char, item])
+    ).values()
+  );
+
+  if (DATA.length === 0) {
+    throw new Error('words.json does not contain any valid characters.');
+  }
+
+  console.log(`Loaded ${HANZI_POOL.length} characters`);
+  console.log(`Using ${DATA.length} unique characters`);
+}
+
 const STORAGE_KEY = 'chinese-weekly-progress-v1';
 
-let state = loadState();
-let weekly = getWeeklySet();
+let state = { completed: {}, streakDates: [] };
+let weekly = [];
 let selectedIndex = 0;
 let writer = null;
 let practice = { order: [], current: 0, score: 0 };
@@ -105,33 +125,17 @@ function renderGrid() {
   document.querySelectorAll('.char-card').forEach(btn => btn.addEventListener('click', () => selectCharacter(Number(btn.dataset.index))));
 }
 
-function getWriterSize() {
-  const el = $('writer');
-  const size = Math.floor(Math.min(el.clientWidth || 320, el.clientHeight || el.clientWidth || 320));
-  return Math.max(180, size);
-}
-
 function initWriter(char) {
   if (!window.HanziWriter) {
     $('writer').textContent = char;
     $('writerStatus').textContent = '筆順工具尚未載入；請確認網路連線後重新整理。';
     return;
   }
-
-  if (writer && typeof writer.cancelQuiz === 'function') {
-    try { writer.cancelQuiz(); } catch (_) {}
-  }
-  writer = null;
   $('writer').innerHTML = '';
-
   try {
-    const size = getWriterSize();
     writer = HanziWriter.create('writer', char, {
-      width: size,
-      height: size,
-      padding: Math.round(size * 0.08),
-      showOutline: true,
-      showCharacter: false,
+      width: '100%', height: '100%', padding: 12,
+      showOutline: true, showCharacter: false,
       strokeAnimationSpeed: 1,
       strokeColor: '#d84b45',
       radicalColor: '#d84b45',
@@ -141,28 +145,14 @@ function initWriter(char) {
       strokeFadeDuration: 300,
       strokeHighlightDuration: 180,
       delayBetweenStrokes: 180,
-      onLoadCharDataSuccess: () => {
-        $('writerStatus').textContent = '筆順已載入。先看一次，再自己寫。';
-      },
-      onLoadCharDataError: () => {
-        $('writerStatus').textContent = '找不到這個字的筆順資料。';
-      }
+      onLoadCharDataSuccess: () => { $('writerStatus').textContent = '筆順已載入。先看一次，再自己寫。'; },
+      onLoadCharDataError: () => { $('writerStatus').textContent = '找不到這個字的筆順資料。'; }
     });
     $('writerStatus').textContent = '筆順載入中…';
   } catch (e) {
-    console.error('Hanzi Writer initialization failed:', e);
     $('writerStatus').textContent = '筆順工具發生問題，請重新整理頁面。';
   }
 }
-
-let writerResizeTimer = null;
-window.addEventListener('resize', () => {
-  if (!writer) return;
-  clearTimeout(writerResizeTimer);
-  writerResizeTimer = setTimeout(() => {
-    try { writer.updateDimensions({ width: getWriterSize(), height: getWriterSize() }); } catch (_) {}
-  }, 120);
-});
 
 function renderCharacter() {
   const item = weekly[selectedIndex];
@@ -188,36 +178,14 @@ function selectCharacter(index) {
   renderCharacter();
 }
 
-function getChineseVoice() {
-  if (!('speechSynthesis' in window)) return null;
-  const voices = window.speechSynthesis.getVoices();
-  return voices.find(v => /^zh-TW$/i.test(v.lang))
-    || voices.find(v => /^zh[-_]TW/i.test(v.lang))
-    || voices.find(v => /^zh/i.test(v.lang))
-    || null;
-}
-
-function speak(text, options = {}) {
-  if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance === 'undefined') {
-    showToast('這個瀏覽器不支援語音播放');
-    return;
-  }
-  const value = String(text || '').trim();
-  if (!value) return;
-
+function speak(text) {
+  if (!('speechSynthesis' in window)) { showToast('這個瀏覽器不支援語音播放'); return; }
   window.speechSynthesis.cancel();
-  const u = new SpeechSynthesisUtterance(value);
-  u.lang = options.lang || 'zh-TW';
-  u.rate = options.rate ?? .8;
-  u.pitch = options.pitch ?? 1;
-  const voice = getChineseVoice();
-  if (voice && (!options.lang || /^zh/i.test(options.lang))) u.voice = voice;
-  u.onerror = () => showToast('語音播放失敗，請確認裝置的中文語音已啟用。');
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'zh-TW';
+  u.rate = .8;
+  u.pitch = 1;
   window.speechSynthesis.speak(u);
-}
-
-if ('speechSynthesis' in window) {
-  window.speechSynthesis.addEventListener?.('voiceschanged', () => getChineseVoice());
 }
 
 function showToast(msg) {
@@ -274,58 +242,45 @@ function nextPractice() {
   renderPracticeQuestion();
 }
 
-$('animateBtn').addEventListener('click', () => {
-  if (!writer || typeof writer.animateCharacter !== 'function') {
-    showToast('筆順工具尚未準備好');
-    return;
-  }
-  try {
-    $('writerStatus').textContent = '正在播放筆順…';
-    writer.animateCharacter({ onComplete: () => { $('writerStatus').textContent = '筆順播放完成。現在試著自己寫。'; } });
-  } catch (e) {
-    console.error('Hanzi Writer animation failed:', e);
-    showToast('筆順動畫啟動失敗，請重新整理。');
-  }
-});
-$('quizBtn').addEventListener('click', () => {
-  if (!writer || typeof writer.quiz !== 'function') {
-    showToast('筆順工具尚未準備好');
-    return;
-  }
-  try {
-    writer.quiz({
-      showHintAfterMisses: 2,
-      onComplete: () => {
-        $('writerStatus').textContent = '太棒了！你完成了這個字的筆順練習。';
-        markCompleted(weekly[selectedIndex].char);
-        renderWeekMeta();
-        renderGrid();
-        renderCharacter();
-        showToast(`「${weekly[selectedIndex].char}」筆順完成 ✓`);
-      },
-      onMistake: () => { $('writerStatus').textContent = '再試一次，慢慢寫，注意筆畫方向。'; },
-      onCorrectStroke: () => { $('writerStatus').textContent = '寫對了！繼續下一筆。'; }
-    });
-    $('writerStatus').textContent = '請照著筆順，在上方寫出這個字。';
-  } catch (e) {
-    console.error('Hanzi Writer quiz failed:', e);
-    showToast('筆順練習啟動失敗，請重新整理。');
-  }
-});
-$('speakBtn').addEventListener('click', () => speak(weekly[selectedIndex].char, { rate: .72 }));
-$('meaningSpeakBtn').addEventListener('click', () => speak(weekly[selectedIndex].meaning));
-$('sentenceSpeakBtn').addEventListener('click', () => speak(weekly[selectedIndex].sentence, { rate: .78 }));
-$('markBtn').addEventListener('click', () => {
-  const item = weekly[selectedIndex];
-  markCompleted(item.char); renderWeekMeta(); renderGrid(); renderCharacter(); showToast(`「${item.char}」已完成 ✓`);
-});
-$('startPractice').addEventListener('click', startPractice);
-$('nextQuestion').addEventListener('click', nextPractice);
-$('closePractice').addEventListener('click', () => $('practiceSection').classList.add('hidden'));
-$('resetProgress').addEventListener('click', () => {
-  if (!confirm('確定要清除這台裝置上的學習紀錄嗎？')) return;
-  state = { completed: {}, streakDates: [] }; saveState(); renderWeekMeta(); renderGrid(); renderCharacter(); showToast('學習紀錄已重設');
-});
+function setupEventListeners() {
+  $('animateBtn').addEventListener('click', () => writer?.animateCharacter?.() || showToast('筆順工具尚未準備好'));
+  $('quizBtn').addEventListener('click', () => writer?.quiz?.({ showHintAfterMisses: 2 }) || showToast('筆順工具尚未準備好'));
+  $('speakBtn').addEventListener('click', () => {
+    const item = weekly[selectedIndex];
+    if (item) speak(item.char);
+  });
+  $('markBtn').addEventListener('click', () => {
+    const item = weekly[selectedIndex];
+    if (!item) return;
+    markCompleted(item.char); renderWeekMeta(); renderGrid(); renderCharacter(); showToast(`「${item.char}」已完成 ✓`);
+  });
+  $('startPractice').addEventListener('click', startPractice);
+  $('nextQuestion').addEventListener('click', nextPractice);
+  $('closePractice').addEventListener('click', () => $('practiceSection').classList.add('hidden'));
+  $('resetProgress').addEventListener('click', () => {
+    if (!confirm('確定要清除這台裝置上的學習紀錄嗎？')) return;
+    state = { completed: {}, streakDates: [] }; saveState(); renderWeekMeta(); renderGrid(); renderCharacter(); showToast('學習紀錄已重設');
+  });
+}
 
-renderWeekMeta();
-renderCharacter();
+async function init() {
+  try {
+    await loadWords();
+    state = loadState();
+    weekly = getWeeklySet();
+    setupEventListeners();
+    renderWeekMeta();
+    renderCharacter();
+  } catch (error) {
+    console.error('Failed to initialize Chinese Weekly:', error);
+    document.body.innerHTML = `
+      <main style="max-width:680px;margin:0 auto;padding:48px 24px;text-align:center;font-family:system-ui,sans-serif">
+        <h1>Unable to load the weekly character list</h1>
+        <p>Please refresh the page and try again.</p>
+        <p style="color:#666;font-size:14px">${error.message.replace(/[<>]/g, '')}</p>
+      </main>
+    `;
+  }
+}
+
+init();
