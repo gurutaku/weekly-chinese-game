@@ -1,32 +1,37 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ERPMF4T7YG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-  
+
     gtag('config', 'G-ERPMF4T7YG');
   </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#eef7ff" />
-  <meta name="description" content="A kid-friendly weekly Chinese character learning game with stroke order, pronunciation, meanings, examples, and writing practice." />
+  <meta name="description"
+    content="A kid-friendly weekly Chinese character learning game with stroke order, pronunciation, meanings, examples, and writing practice." />
   <title>Learn 10 Chinese Characters a Week</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="app-shell">
     <header class="topbar">
       <div>
         <div class="eyebrow">🌟 CHINESE CHARACTER ADVENTURE</div>
         <h1>Learn 10 Chinese Characters a Week <span class="spark">✦</span></h1>
-        <p class="subtitle">Learn a few Chinese characters at a time! See how each character is written, hear how it sounds, learn what it means, and try writing it yourself.</p>
+        <p class="subtitle">Learn a few Chinese characters at a time! See how each character is written, hear how it
+          sounds, learn what it means, and try writing it yourself.</p>
       </div>
-      <button id="resetProgress" class="ghost-btn" type="button" title="Clear your learning progress on this device">Reset Progress</button>
+      <button id="resetProgress" class="ghost-btn" type="button"
+        title="Clear your learning progress on this device">Reset Progress</button>
     </header>
 
     <main>
@@ -51,7 +56,17 @@
         </div>
       </section>
 
-      <section class="how-to card" aria-label="How to learn"><div class="how-step"><span>1</span><div><strong>See it</strong><small>Look at the character and its pronunciation.</small></div></div><div class="how-step"><span>2</span><div><strong>Hear it</strong><small>Tap 🔊 to hear the Chinese pronunciation.</small></div></div><div class="how-step"><span>3</span><div><strong>Write it</strong><small>Watch the stroke order, then try it yourself.</small></div></div></section>
+      <section class="how-to card" aria-label="How to learn">
+        <div class="how-step"><span>1</span>
+          <div><strong>See it</strong><small>Look at the character and its pronunciation.</small></div>
+        </div>
+        <div class="how-step"><span>2</span>
+          <div><strong>Hear it</strong><small>Tap 🔊 to hear the Chinese pronunciation.</small></div>
+        </div>
+        <div class="how-step"><span>3</span>
+          <div><strong>Write it</strong><small>Watch the stroke order, then try it yourself.</small></div>
+        </div>
+      </section>
 
       <section id="characterGrid" class="character-grid" aria-label="This week's 10 Chinese characters"></section>
 
@@ -62,7 +77,8 @@
             <h2 id="selectedTitle">Choose a character</h2>
           </div>
           <div class="head-actions">
-            <button id="speakBtn" class="icon-btn" type="button" aria-label="Hear Chinese pronunciation" title="Hear Chinese pronunciation">🔊</button>
+            <button id="speakBtn" class="icon-btn" type="button" aria-label="Hear Chinese pronunciation"
+              title="Hear Chinese pronunciation">🔊</button>
             <button id="markBtn" class="soft-btn" type="button">Mark Complete</button>
           </div>
         </div>
@@ -97,7 +113,8 @@
             <div class="meaning-block">
               <div class="fact-heading">
                 <div class="fact-label">MEANING</div>
-                <button id="meaningSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="Hear the English meaning" title="Hear the English meaning">🔊 Hear English</button>
+                <button id="meaningSpeakBtn" class="tiny-btn speak-text-btn" type="button"
+                  aria-label="Hear the English meaning" title="Hear the English meaning">🔊 Hear English</button>
               </div>
               <div id="meaning" class="meaning">—</div>
             </div>
@@ -105,7 +122,9 @@
             <div class="sentence-block">
               <div class="fact-heading">
                 <div class="fact-label">EXAMPLE SENTENCE</div>
-                <button id="sentenceSpeakBtn" class="tiny-btn speak-text-btn" type="button" aria-label="Hear the Chinese example sentence" title="Hear the Chinese example sentence">🔊 Hear Chinese</button>
+                <button id="sentenceSpeakBtn" class="tiny-btn speak-text-btn" type="button"
+                  aria-label="Hear the Chinese example sentence" title="Hear the Chinese example sentence">🔊 Hear
+                  Chinese</button>
               </div>
               <div id="sentence" class="sentence"><span class="language-label">Chinese:</span> —</div>
               <div id="sentenceEnglish" class="sentence-en"><span class="language-label">English:</span> —</div>
@@ -147,4 +166,5 @@
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.7.3/dist/hanzi-writer.min.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
