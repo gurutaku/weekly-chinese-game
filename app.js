@@ -785,33 +785,6 @@ function setupEventListeners() {
     }
   );
 
-  $('resetProgress').addEventListener(
-    'click',
-    () => {
-      if (
-        !confirm(
-          'Clear all learning progress saved on this device?'
-        )
-      ) {
-        return;
-      }
-
-      state = {
-        completed: {},
-        streakDates: []
-      };
-
-      saveState();
-
-      renderWeekMeta();
-      renderGrid();
-      renderCharacter();
-
-      showToast(
-        'Progress reset. Ready for a fresh start!'
-      );
-    }
-  );
 }
 
 async function init() {

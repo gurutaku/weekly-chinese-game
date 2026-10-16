@@ -61,6 +61,34 @@ button:focus-visible {
   margin-bottom: 18px;
 }
 
+.games-hub-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border: 1px solid #f2c9dd;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fff5cf, #ffe8f1);
+  box-shadow: 0 3px 0 #ecc8dc;
+  color: #694978;
+  font-size: 14px;
+  font-weight: 850;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .12s, box-shadow .12s;
+}
+
+.games-hub-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #ecc8dc;
+}
+
+.games-hub-link:focus-visible {
+  outline: 4px solid rgba(59, 130, 246, .28);
+  outline-offset: 2px;
+}
+
 .eyebrow,
 .week-label,
 .fact-label,
@@ -678,7 +706,11 @@ h2 {
     margin-bottom: 12px;
   }
 
-  .topbar .ghost-btn {
+  .games-hub-link {
+    padding: 9px 11px;
+  }
+
+  .games-hub-label {
     display: none;
   }
 
