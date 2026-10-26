@@ -635,15 +635,18 @@ h2 {
   font-weight: 900;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 14px;
-  margin: 22px 3px 0;
-  color: #71839a;
-  font-size: 12px;
-  font-weight: 700;
-}
+        /* Footer */
+        footer {
+        text-align: center;
+        padding: 35px 24px;
+        color: #78909c;
+        font-size: 0.9rem;
+        background: #fafafa;
+        }
+
+        footer strong {
+        color: #455a64;
+        }
 
 .hidden {
   display: none !important;
@@ -791,9 +794,5 @@ h2 {
 
   .choice-btn {
     min-height: 76px;
-  }
-
-  .footer {
-    flex-direction: column;
   }
 }
