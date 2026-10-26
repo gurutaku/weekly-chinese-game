@@ -563,7 +563,7 @@ function renderPracticeQuestion() {
     weekly[idx];
 
   $('practicePrompt').textContent =
-    `Bopomofo sound:  ${target.bopomofo}`;
+    `Bopomofo sound:  ${target.bopomofo} ; Pinyin: ${target.pinyin}`;
 
   const others =
     shuffle(
